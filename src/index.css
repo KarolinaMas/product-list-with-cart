@@ -1,1 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
 @import "tailwindcss";
+
+@theme {
+  --color-rose-50: #fcf8f6;
+  --color-rose-900: #260f08;
+}
+
+body {
+  background-color: var(--color-rose-50);
+  color: var(--color-rose-900);
+  font-family: "Red Hat Text", sans-serif;
+}
