@@ -1,13 +1,14 @@
 import defaultForEmptyCart from "./assets/illustration-empty-cart.svg";
+import ListItem from "./components/ListItem";
 
 const App = () => {
   return (
     <div className="max-w-[327px] mx-auto flex flex-col gap-8">
       <section>
         <h1 className="text-[2.5rem] font-bold">Desserts</h1>
-        <ul>
-          <li>list item</li>
-        </ul>
+        <div>
+          <ListItem />
+        </div>
       </section>
       <section className="bg-white p-6 rounded-xl">
         <p className="text-red text-2xl font-bold leading-[125%] mb-6">
