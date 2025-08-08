@@ -1,16 +1,17 @@
 import cartIcon from "../assets/icons/icon-add-to-cart.svg";
-import imageDes from "../assets/images/image-waffle-mobile.jpg";
+// import imageDes from "../assets/images/image-waffle-mobile.jpg";
+import type { ListItemProps } from "../types/props";
 
-const ListItem = () => {
+const ListItem = ({ image, name, category, price }: ListItemProps) => {
   return (
     <div>
-      <img src={imageDes} alt="Dessert." className="rounded-lg" />
+      <img src={image} alt="Dessert." className="rounded-lg" />
       <button className="bg-white flex gap-2 py-3 px-6 translate-x-[50%] translate-y-[-50%] text-sm font-semibold border border-rose-400 rounded-full leading-[150%]">
         <img src={cartIcon} alt="cart icon" /> Add to Cart
       </button>
-      <p className="text-sm text-rose-500 leading-[150%]">Waffle</p>
-      <p className="leading-[150%] font-semibold">Waffle with Berries</p>
-      <p className="leading-[150%] font-semibold text-red">$6.50</p>
+      <p className="text-sm text-rose-500 leading-[150%]">{category}</p>
+      <p className="leading-[150%] font-semibold">{name}</p>
+      <p className="leading-[150%] font-semibold text-red">{price}</p>
     </div>
   );
 };

@@ -1,13 +1,30 @@
+import { useEffect, useState } from "react";
 import defaultForEmptyCart from "./assets/illustration-empty-cart.svg";
 import ListItem from "./components/ListItem";
+import data from "./data.json";
+import type { Data } from "./types/data";
 
 const App = () => {
+  const [list, setList] = useState<Data[]>([]);
+
+  useEffect(() => {
+    setList(data);
+  }, []);
+
   return (
     <div className="max-w-[327px] mx-auto flex flex-col gap-8">
       <section>
         <h1 className="text-[2.5rem] font-bold">Desserts</h1>
         <div>
-          <ListItem />
+          {list.map(({ image, name, category, price }) => (
+            <ListItem
+              key={name}
+              image={image.mobile}
+              name={name}
+              category={category}
+              price={price}
+            />
+          ))}
         </div>
       </section>
       <section className="bg-white p-6 rounded-xl">
