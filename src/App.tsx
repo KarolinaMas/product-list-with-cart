@@ -12,10 +12,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="max-w-[327px] mx-auto flex flex-col gap-8">
+    <div className="max-w-[327px] mx-auto py-6 flex flex-col gap-8">
       <section>
-        <h1 className="text-[2.5rem] font-bold">Desserts</h1>
-        <div>
+        <h1 className="text-[2.5rem] font-bold mb-8">Desserts</h1>
+        <div className="flex flex-col gap-6">
           {list.map(({ image, name, category, price }) => (
             <ListItem
               key={name}

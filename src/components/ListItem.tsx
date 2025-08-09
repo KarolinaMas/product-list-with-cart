@@ -11,7 +11,9 @@ const ListItem = ({ image, name, category, price }: ListItemProps) => {
       </button>
       <p className="text-sm text-rose-500 leading-[150%]">{category}</p>
       <p className="leading-[150%] font-semibold">{name}</p>
-      <p className="leading-[150%] font-semibold text-red">{price}</p>
+      <p className="leading-[150%] font-semibold text-red">
+        ${price.toFixed(2)}
+      </p>
     </div>
   );
 };
