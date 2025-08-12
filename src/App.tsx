@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import defaultForEmptyCart from "./assets/illustration-empty-cart.svg";
 import ListItem from "./components/ListItem";
 import data from "./data.json";
-import type { Data } from "./types/data";
+import type { Data, CartData } from "./types/data";
 
 const App = () => {
   const [list, setList] = useState<Data[]>([]);
+  const [cart, setCart] = useState<CartData[]>([]);
 
   useEffect(() => {
     setList(data);
