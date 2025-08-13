@@ -3,4 +3,5 @@ export type ListItemProps = {
   name: string;
   category: string;
   price: number;
+  handleClick: (name: string) => void;
 };
