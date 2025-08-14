@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import defaultForEmptyCart from "./assets/illustration-empty-cart.svg";
+import removeIcon from "./assets/icons/icon-remove-item.svg";
 import ListItem from "./components/ListItem";
 import data from "./data.json";
 import type { Data, CartItem } from "./types/data";
@@ -81,17 +82,18 @@ const App = () => {
             {cart.map((item) => (
               <div
                 key={item.name}
-                className="grid grid-cols-12 items-center gap-2 p-3"
+                className="flex items-center justify-between pb-4 mb-4 text-sm border-b-2 border-rose-100"
               >
-                <div className="col-span-7">
-                  <p className="font-medium">{item.name}</p>
-                  <p className="text-sm text-gray-500">{item.category}</p>
+                <div className="text-rose-500">
+                  <p className="text-rose-900 font-semibold ">{item.name}</p>
+                  <div className="flex gap-2.5 mt-2.5">
+                    <p className="text-red font-semibold">x{item.quantity}</p>
+                    <p>@ ${item.price.toFixed(2)}</p>
+                    <p className="font-semibold">$13.00</p>
+                  </div>
                 </div>
-                <div className="col-span-2 text-center">
-                  <p className="text-lg font-semibold">x{item.quantity}</p>
-                </div>
-                <div className="col-span-3 text-right">
-                  <p className="font-medium">@ ${item.price.toFixed(2)}</p>
+                <div className="w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400">
+                  <img src={removeIcon} alt="x icon" />
                 </div>
               </div>
             ))}
