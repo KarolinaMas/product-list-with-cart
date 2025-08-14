@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import defaultForEmptyCart from "./assets/illustration-empty-cart.svg";
-import removeIcon from "./assets/icons/icon-remove-item.svg";
 import ListItem from "./components/ListItem";
 import data from "./data.json";
 import type { Data, CartItem } from "./types/data";
@@ -92,9 +91,27 @@ const App = () => {
                     <p className="font-semibold">$13.00</p>
                   </div>
                 </div>
-                <div className="w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400">
-                  <img src={removeIcon} alt="x icon" />
-                </div>
+                <button
+                  className="
+                        group w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400 cursor-pointer 
+                        hover:border-rose-900
+                        "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    className="w-[17.5px] h-[17.5px] text-rose-400 group-hover:text-rose-900"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
               </div>
             ))}
           </div>
