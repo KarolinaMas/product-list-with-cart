@@ -42,6 +42,11 @@ const App = () => {
     [cart]
   );
 
+  const removeItem = (name: string) => {
+    const editedList = cart.filter((item) => item.name !== name);
+    setCart(editedList);
+  };
+
   return (
     <div className="mx-auto flex max-w-[327px] flex-col gap-8 py-6">
       <section>
@@ -96,6 +101,7 @@ const App = () => {
                         group w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400 cursor-pointer 
                         hover:border-rose-900
                         "
+                  onClick={() => removeItem(item.name)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
