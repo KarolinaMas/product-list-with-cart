@@ -88,41 +88,47 @@ const App = () => {
         ) : (
           <div className="space-y-4">
             {cart.map((item) => (
-              <div
-                key={item.name}
-                className="flex items-center justify-between pb-4 mb-4 text-sm border-b-2 border-rose-100"
-              >
-                <div className="text-rose-500">
-                  <p className="text-rose-900 font-semibold ">{item.name}</p>
-                  <div className="flex gap-2.5 mt-2.5">
-                    <p className="text-red font-semibold">x{item.quantity}</p>
-                    <p>@ ${item.price.toFixed(2)}</p>
-                    <p className="font-semibold">${item.total.toFixed(2)}</p>
+              <>
+                <div
+                  key={item.name}
+                  className="flex items-center justify-between pb-4 mb-4 text-sm border-b-2 border-rose-100"
+                >
+                  <div className="text-rose-500">
+                    <p className="text-rose-900 font-semibold ">{item.name}</p>
+                    <div className="flex gap-2.5 mt-2.5">
+                      <p className="text-red font-semibold">x{item.quantity}</p>
+                      <p>@ ${item.price.toFixed(2)}</p>
+                      <p className="font-semibold">${item.total.toFixed(2)}</p>
+                    </div>
                   </div>
-                </div>
-                <button
-                  className="
+                  <button
+                    className="
                         group w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400 cursor-pointer 
                         hover:border-rose-900
                         "
-                  onClick={() => removeItem(item.name)}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    className="w-[17.5px] h-[17.5px] text-rose-400 group-hover:text-rose-900"
+                    onClick={() => removeItem(item.name)}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      className="w-[17.5px] h-[17.5px] text-rose-400 group-hover:text-rose-900"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm">Order Total</p>
+                  <p className="text-2xl font-bold">$46.55</p>
+                </div>
+              </>
             ))}
           </div>
         )}
