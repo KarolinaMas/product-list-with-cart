@@ -10,4 +10,4 @@ export interface Data {
   price: number;
 }
 
-export type CartItem = Data & { quantity: number };
+export type CartItem = Data & { quantity: number; total: number };

@@ -23,13 +23,18 @@ const App = () => {
       if (index !== -1) {
         const copy = [...prev];
         const existing = copy[index];
-        copy[index] = { ...existing, quantity: existing.quantity + 1 };
+        const nextQuantity = existing.quantity + 1;
+        copy[index] = {
+          ...existing,
+          quantity: nextQuantity,
+          total: existing.price * nextQuantity,
+        };
         return copy;
       }
 
       const item = list.find((item) => item.name === name);
       if (!item) return prev;
-      return [...prev, { ...item, quantity: 1 }];
+      return [...prev, { ...item, quantity: 1, total: item.price }];
     });
   };
 
@@ -43,8 +48,7 @@ const App = () => {
   );
 
   const removeItem = (name: string) => {
-    const editedList = cart.filter((item) => item.name !== name);
-    setCart(editedList);
+    setCart((prev) => prev.filter((item) => item.name !== name));
   };
 
   return (
@@ -93,7 +97,7 @@ const App = () => {
                   <div className="flex gap-2.5 mt-2.5">
                     <p className="text-red font-semibold">x{item.quantity}</p>
                     <p>@ ${item.price.toFixed(2)}</p>
-                    <p className="font-semibold">$13.00</p>
+                    <p className="font-semibold">${item.total.toFixed(2)}</p>
                   </div>
                 </div>
                 <button
