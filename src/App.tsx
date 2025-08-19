@@ -51,6 +51,16 @@ const App = () => {
     setCart((prev) => prev.filter((item) => item.name !== name));
   };
 
+  const countTotalOrder = () => {
+    if (cart) {
+      const pricesArr = cart.map((item) => item.total);
+      return pricesArr.reduce((total, acc) => {
+        return total + acc;
+      }, 0);
+    }
+    return 0;
+  };
+
   return (
     <div className="mx-auto flex max-w-[327px] flex-col gap-8 py-6">
       <section>
@@ -88,48 +98,48 @@ const App = () => {
         ) : (
           <div className="space-y-4">
             {cart.map((item) => (
-              <>
-                <div
-                  key={item.name}
-                  className="flex items-center justify-between pb-4 mb-4 text-sm border-b-2 border-rose-100"
-                >
-                  <div className="text-rose-500">
-                    <p className="text-rose-900 font-semibold ">{item.name}</p>
-                    <div className="flex gap-2.5 mt-2.5">
-                      <p className="text-red font-semibold">x{item.quantity}</p>
-                      <p>@ ${item.price.toFixed(2)}</p>
-                      <p className="font-semibold">${item.total.toFixed(2)}</p>
-                    </div>
+              <div
+                key={item.name}
+                className="flex items-center justify-between pb-4 mb-4 text-sm border-b-2 border-rose-100"
+              >
+                <div className="text-rose-500">
+                  <p className="text-rose-900 font-semibold ">{item.name}</p>
+                  <div className="flex gap-2.5 mt-2.5">
+                    <p className="text-red font-semibold">x{item.quantity}</p>
+                    <p>@ ${item.price.toFixed(2)}</p>
+                    <p className="font-semibold">${item.total.toFixed(2)}</p>
                   </div>
-                  <button
-                    className="
+                </div>
+                <button
+                  className="
                         group w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400 cursor-pointer 
                         hover:border-rose-900
                         "
-                    onClick={() => removeItem(item.name)}
+                  onClick={() => removeItem(item.name)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    className="w-[17.5px] h-[17.5px] text-rose-400 group-hover:text-rose-900"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      className="w-[17.5px] h-[17.5px] text-rose-400 group-hover:text-rose-900"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-sm">Order Total</p>
-                  <p className="text-2xl font-bold">$46.55</p>
-                </div>
-              </>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
             ))}
+            <div className="flex items-center justify-between">
+              <p className="text-sm">Order Total</p>
+              <p className="text-2xl font-bold">
+                ${countTotalOrder().toFixed(2)}
+              </p>
+            </div>
           </div>
         )}
       </section>
