@@ -136,19 +136,22 @@ const App = () => {
                 </button>
               </div>
             ))}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mt-6">
               <p className="text-sm">Order Total</p>
               <p className="text-2xl font-bold">
                 ${countTotalOrder().toFixed(2)}
               </p>
             </div>
-            <div className="bg-rose-50 flex gap-2 justify-center p-4 rounded-lg">
+            <div className="bg-rose-50 flex gap-2 justify-center p-4 my-6 rounded-lg">
               <img src={treeIcon} alt="tree icon" />
               <p className="text-sm">
                 This is a <span className="font-semibold">carbon-neutral </span>
                 delivery
               </p>
             </div>
+            <button className="bg-red rounded-full w-full text-white font-medium px-6 py-4">
+              Confirm Order
+            </button>
           </div>
         )}
       </section>
