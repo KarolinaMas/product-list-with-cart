@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import defaultForEmptyCart from "./assets/illustration-empty-cart.svg";
+import treeIcon from "./assets/icons/icon-carbon-neutral.svg";
 import ListItem from "./components/ListItem";
 import data from "./data.json";
 import type { Data, CartItem } from "./types/data";
@@ -73,6 +74,7 @@ const App = () => {
               name={name}
               category={category}
               price={price}
+              isSelected={false}
               handleClick={handleClick}
             />
           ))}
@@ -138,6 +140,13 @@ const App = () => {
               <p className="text-sm">Order Total</p>
               <p className="text-2xl font-bold">
                 ${countTotalOrder().toFixed(2)}
+              </p>
+            </div>
+            <div className="bg-rose-50 flex gap-2 justify-center p-4 rounded-lg">
+              <img src={treeIcon} alt="tree icon" />
+              <p className="text-sm">
+                This is a <span className="font-semibold">carbon-neutral </span>
+                delivery
               </p>
             </div>
           </div>
