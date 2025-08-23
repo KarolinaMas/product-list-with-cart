@@ -62,6 +62,11 @@ const App = () => {
     return 0;
   };
 
+  const getQuantity = (name: string) => {
+    const foundItem = cart.find((item) => item.name === name);
+    return foundItem ? foundItem.quantity : 0;
+  };
+
   return (
     <div className="mx-auto flex max-w-[327px] flex-col gap-8 py-6">
       <section>
@@ -74,7 +79,7 @@ const App = () => {
               name={name}
               category={category}
               price={price}
-              isSelected={false}
+              quantity={getQuantity(name)}
               handleClick={handleClick}
             />
           ))}

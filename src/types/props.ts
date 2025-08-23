@@ -3,5 +3,6 @@ export type ListItemProps = {
   name: string;
   category: string;
   price: number;
+  quantity: number;
   handleClick: (name: string) => void;
 };
