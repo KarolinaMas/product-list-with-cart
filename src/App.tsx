@@ -4,6 +4,7 @@ import treeIcon from "./assets/icons/icon-carbon-neutral.svg";
 import ListItem from "./components/ListItem";
 import data from "./data.json";
 import type { Data, CartItem } from "./types/data";
+import { decrementLogic, incrementLogic } from "./utils";
 
 const App = () => {
   const [list, setList] = useState<Data[]>([]);
@@ -22,25 +23,14 @@ const App = () => {
       const index = prev.findIndex((item) => item.name === name);
 
       if (index !== -1) {
-        const copy = [...prev];
-        const existing = copy[index];
-        const nextQuantity = existing.quantity + 1;
-        copy[index] = {
-          ...existing,
-          quantity: nextQuantity,
-          total: existing.price * nextQuantity,
-        };
-        return copy;
+        return incrementLogic(prev, name);
       }
 
       const item = list.find((item) => item.name === name);
       if (!item) return prev;
+
       return [...prev, { ...item, quantity: 1, total: item.price }];
     });
-  };
-
-  const handleClick = (name: string) => {
-    addToCart(name);
   };
 
   const totalUnits = useMemo(
@@ -50,6 +40,20 @@ const App = () => {
 
   const removeItem = (name: string) => {
     setCart((prev) => prev.filter((item) => item.name !== name));
+  };
+
+  const increment = (name: string) => {
+    setCart((prev) => incrementLogic(prev, name));
+  };
+
+  const decrement = (name: string) => {
+    const currentItem = cart.find((item) => item.name === name);
+
+    if (currentItem && currentItem.quantity > 1) {
+      setCart((prev) => decrementLogic(prev, name));
+    } else if (currentItem && currentItem.quantity === 1) {
+      removeItem(name);
+    }
   };
 
   const countTotalOrder = () => {
@@ -80,7 +84,9 @@ const App = () => {
               category={category}
               price={price}
               quantity={getQuantity(name)}
-              handleClick={handleClick}
+              addToCart={addToCart}
+              increment={increment}
+              decrement={decrement}
             />
           ))}
         </div>

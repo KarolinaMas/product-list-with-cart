@@ -4,5 +4,7 @@ export type ListItemProps = {
   category: string;
   price: number;
   quantity: number;
-  handleClick: (name: string) => void;
+  addToCart: (name: string) => void;
+  increment: (name: string) => void;
+  decrement: (name: string) => void;
 };
