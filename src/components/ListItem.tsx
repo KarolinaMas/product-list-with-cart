@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cartIcon from "../assets/icons/icon-add-to-cart.svg";
 import minusIcon from "../assets/icons/icon-decrement-quantity.svg";
 import plusIcon from "../assets/icons/icon-increment-quantity.svg";
@@ -32,6 +32,12 @@ const ListItem = ({
       decrement(name);
     }
   };
+
+  useEffect(() => {
+    if (quantity === 0) {
+      setIsSelected(false);
+    }
+  }, [quantity]);
 
   return (
     <div>
