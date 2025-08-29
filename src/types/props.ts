@@ -8,3 +8,12 @@ export type ListItemProps = {
   increment: (name: string) => void;
   decrement: (name: string) => void;
 };
+
+export type AddToCartControlsProps = {
+  name: string;
+  isSelected: boolean;
+  handleClick: (name: string) => void;
+  removeFromCart: (name: string) => void;
+  increment: (name: string) => void;
+  quantity: number;
+};
