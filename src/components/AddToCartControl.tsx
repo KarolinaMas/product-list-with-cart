@@ -5,7 +5,6 @@ import minusIcon from "../assets/icons/icon-decrement-quantity.svg";
 import plusIcon from "../assets/icons/icon-increment-quantity.svg";
 
 const AddToCartControl = ({
-  isSelected,
   name,
   handleClick,
   removeFromCart,
@@ -18,7 +17,7 @@ const AddToCartControl = ({
         onClick={() => handleClick(name)}
         className={clsx(
           "absolute bg-white flex gap-2 py-3 px-6 translate-x-[50%] translate-y-[-50%] text-sm font-semibold border border-rose-400 rounded-full leading-[150%] transition-all duration-300",
-          !isSelected
+          !quantity
             ? "opacity-100 scale-100"
             : "opacity-0 scale-90 pointer-events-none"
         )}
@@ -28,7 +27,7 @@ const AddToCartControl = ({
       <button
         className={clsx(
           "absolute bg-red text-white flex justify-between w-[150px] py-3 px-3 translate-x-[50%] translate-y-[-50%] text-sm font-medium rounded-full leading-[150%] transition-all duration-300",
-          !isSelected
+          !quantity
             ? "opacity-0 scale-90 pointer-events-none"
             : "opacity-100 scale-100"
         )}

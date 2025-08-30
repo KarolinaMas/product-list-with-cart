@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import type { ListItemProps } from "../types/props";
 import clsx from "clsx";
 import AddToCartControl from "./AddToCartControl";
@@ -13,42 +12,18 @@ const ListItem = ({
   increment,
   decrement,
 }: ListItemProps) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleClick = (name: string) => {
-    if (quantity === 0) {
-      setIsSelected((prev) => !prev);
-      addToCart(name);
-    }
-  };
-
-  const removeFromCart = (name: string) => {
-    if (quantity > 1) {
-      decrement(name);
-    } else if (quantity <= 1) {
-      setIsSelected((prev) => !prev);
-      decrement(name);
-    }
-  };
-
-  useEffect(() => {
-    if (quantity === 0) {
-      setIsSelected(false);
-    }
-  }, [quantity]);
 
   return (
     <div>
       <img
         src={image}
         alt={name}
-        className={clsx("rounded-lg", isSelected && "border-2 border-red")}
+        className={clsx("rounded-lg", quantity && "border-2 border-red")}
       />
       <AddToCartControl
         name={name}
-        isSelected={isSelected}
-        handleClick={handleClick}
-        removeFromCart={removeFromCart}
+        handleClick={addToCart}
+        removeFromCart={decrement}
         quantity={quantity}
         increment={increment}
       />

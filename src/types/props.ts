@@ -11,7 +11,6 @@ export type ListItemProps = {
 
 export type AddToCartControlsProps = {
   name: string;
-  isSelected: boolean;
   handleClick: (name: string) => void;
   removeFromCart: (name: string) => void;
   increment: (name: string) => void;
