@@ -24,7 +24,7 @@ const AddToCartControl = ({
       >
         <img src={cartIcon} alt="cart icon" /> Add to Cart
       </button>
-      <button
+      <div
         className={clsx(
           "absolute bg-red text-white flex justify-between w-[150px] py-3 px-3 translate-x-[50%] translate-y-[-50%] text-sm font-medium rounded-full leading-[150%] transition-all duration-300",
           !quantity
@@ -32,20 +32,20 @@ const AddToCartControl = ({
             : "opacity-100 scale-100"
         )}
       >
-        <div
+        <button
           className="w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 cursor-pointer"
           onClick={() => removeFromCart(name)}
         >
           <img src={minusIcon} alt="" />
-        </div>
+        </button>
         {quantity}
-        <div
+        <button
           className="w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 cursor-pointer"
           onClick={() => increment(name)}
         >
           <img src={plusIcon} alt="" />
-        </div>
-      </button>
+        </button>
+      </div>
     </div>
   );
 };
