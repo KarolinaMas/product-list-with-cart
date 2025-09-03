@@ -12,11 +12,11 @@ const AddToCartControl = ({
   increment,
 }: AddToCartControlsProps) => {
   return (
-    <div className="relative mb-10">
+    <>
       <button
         onClick={() => handleClick(name)}
         className={clsx(
-          "absolute bg-white flex gap-2 py-3 px-6 translate-x-[50%] translate-y-[-50%] text-sm font-semibold border border-rose-400 rounded-full leading-[150%] transition-all duration-300",
+          "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2  bg-white flex gap-2 py-3 px-6 text-sm font-semibold border border-rose-400 rounded-full leading-[150%] transition-all duration-300",
           !quantity
             ? "opacity-100 scale-100"
             : "opacity-0 scale-90 pointer-events-none"
@@ -26,7 +26,7 @@ const AddToCartControl = ({
       </button>
       <div
         className={clsx(
-          "absolute bg-red text-white flex justify-between w-[150px] py-3 px-3 translate-x-[50%] translate-y-[-50%] text-sm font-medium rounded-full leading-[150%] transition-all duration-300",
+          "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[150px] py-3 px-3  bg-red text-white flex justify-between text-sm font-medium rounded-full leading-[150%] transition-all duration-300",
           !quantity
             ? "opacity-0 scale-90 pointer-events-none"
             : "opacity-100 scale-100"
@@ -46,7 +46,7 @@ const AddToCartControl = ({
           <img src={plusIcon} alt="" />
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

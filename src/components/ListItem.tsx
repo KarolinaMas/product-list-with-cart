@@ -12,21 +12,22 @@ const ListItem = ({
   increment,
   decrement,
 }: ListItemProps) => {
-
   return (
     <div>
-      <img
-        src={image}
-        alt={name}
-        className={clsx("rounded-lg", quantity && "border-2 border-red")}
-      />
-      <AddToCartControl
-        name={name}
-        handleClick={addToCart}
-        removeFromCart={decrement}
-        quantity={quantity}
-        increment={increment}
-      />
+      <div className="relative mb-10">
+        <img
+          src={image}
+          alt={name}
+          className={clsx("rounded-lg", quantity && "border-2 border-red")}
+        />
+        <AddToCartControl
+          name={name}
+          handleClick={addToCart}
+          removeFromCart={decrement}
+          quantity={quantity}
+          increment={increment}
+        />
+      </div>
       <p className="text-sm text-rose-500 leading-[150%]">{category}</p>
       <p className="leading-[150%] font-semibold">{name}</p>
       <p className="leading-[150%] font-semibold text-red">

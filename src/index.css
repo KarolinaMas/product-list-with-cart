@@ -9,6 +9,7 @@
   --color-rose-400: #ad8a85;
   --color-rose-500: #87635a;
   --color-rose-900: #260f08;
+  --breakpoint-xs: 22.5rem;
 }
 
 body {

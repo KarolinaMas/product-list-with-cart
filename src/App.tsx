@@ -72,7 +72,12 @@ const App = () => {
   };
 
   return (
-    <div className="mx-auto flex max-w-[327px] flex-col gap-8 py-6">
+    <div
+      className="
+            mx-auto flex max-w-[327px] flex-col gap-8 py-6
+            max-xs:px-3
+            "
+    >
       <section>
         <h1 className="mb-8 text-[2.5rem] font-bold">Desserts</h1>
         <div className="flex flex-col gap-6">
