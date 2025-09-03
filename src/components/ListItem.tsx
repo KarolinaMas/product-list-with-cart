@@ -18,7 +18,7 @@ const ListItem = ({
         <img
           src={image}
           alt={name}
-          className={clsx("rounded-lg", quantity && "border-2 border-red")}
+          className={clsx("rounded-lg", quantity && "outline-2 outline-red")}
         />
         <AddToCartControl
           name={name}
