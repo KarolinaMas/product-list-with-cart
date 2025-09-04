@@ -12,14 +12,21 @@ const ListItem = ({
   increment,
   decrement,
 }: ListItemProps) => {
+  const { mobile, tablet, desktop } = image;
+
   return (
-    <div>
+    <div className="sm:max-w-53.5 ">
       <div className="relative mb-10">
-        <img
-          src={image}
-          alt={name}
-          className={clsx("rounded-lg", quantity && "outline-2 outline-red")}
-        />
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={desktop} />
+          <source media="(min-width: 640px)" srcSet={tablet} />
+          <source media="(min-width: 0px)" srcSet={mobile} />
+          <img
+            src={mobile}
+            alt={name}
+            className={clsx("rounded-lg", quantity && "outline-2 outline-red")}
+          />
+        </picture>
         <AddToCartControl
           name={name}
           handleClick={addToCart}

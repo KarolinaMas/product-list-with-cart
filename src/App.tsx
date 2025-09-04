@@ -74,17 +74,25 @@ const App = () => {
   return (
     <div
       className="
-            mx-auto flex max-w-[327px] flex-col gap-8 py-6
+            mx-auto flex max-w-[500px] flex-col gap-8 py-6
+            xs:px-6
             max-xs:px-3
+            s:px-10
+            sm:max-w-screen
             "
     >
       <section>
         <h1 className="mb-8 text-[2.5rem] font-bold">Desserts</h1>
-        <div className="flex flex-col gap-6">
+        <div
+          className="
+                  flex flex-col gap-6
+                  sm:flex-row sm:flex-wrap
+                  "
+        >
           {list.map(({ image, name, category, price }) => (
             <ListItem
               key={name}
-              image={image.mobile}
+              image={image}
               name={name}
               category={category}
               price={price}
