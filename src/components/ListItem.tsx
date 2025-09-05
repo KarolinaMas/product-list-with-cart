@@ -15,7 +15,7 @@ const ListItem = ({
   const { mobile, tablet, desktop } = image;
 
   return (
-    <div className="sm:max-w-53.5 ">
+    <div>
       <div className="relative mb-10">
         <picture>
           <source media="(min-width: 1024px)" srcSet={desktop} />

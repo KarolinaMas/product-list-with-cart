@@ -78,15 +78,16 @@ const App = () => {
             xs:px-6
             max-xs:px-3
             s:px-10
-            sm:max-w-screen
+            sm:max-w-screen sm:py-10 
             "
     >
       <section>
         <h1 className="mb-8 text-[2.5rem] font-bold">Desserts</h1>
         <div
           className="
-                  flex flex-col gap-6
-                  sm:flex-row sm:flex-wrap
+                  grid gap-6
+                  sm:grid-cols-2
+                  md:grid-cols-3
                   "
         >
           {list.map(({ image, name, category, price }) => (
