@@ -79,9 +79,11 @@ const App = () => {
             max-xs:px-3
             s:px-10
             sm:max-w-screen sm:py-10 
+            lg:flex-row lg:items-start
+            xl:py-22 xl:px-24
             "
     >
-      <section>
+      <section className="lg:basis-2/3">
         <h1 className="mb-8 text-[2.5rem] font-bold">Desserts</h1>
         <div
           className="
@@ -106,7 +108,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="rounded-xl bg-white p-6">
+      <section className="rounded-xl bg-white p-6 lg:w-[384px] basis-1/3">
         <p className="text-2xl font-bold leading-[125%] text-red mb-6">
           Your Cart ({totalUnits})
         </p>
