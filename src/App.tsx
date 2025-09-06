@@ -142,6 +142,7 @@ const App = () => {
                 <button
                   className="
                         group w-[17.5px] h-[17.5px] flex items-center justify-center rounded-full border-2 border-rose-400 cursor-pointer 
+                        transition-colors duration-200 ease-in
                         hover:border-rose-900
                         "
                   onClick={() => removeItem(item.name)}
@@ -151,7 +152,11 @@ const App = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    className="w-[17.5px] h-[17.5px] text-rose-400 group-hover:text-rose-900"
+                    className="
+                          w-[17.5px] h-[17.5px] text-rose-400 
+                          transition-colors duration-200 ease-in
+                          group-hover:text-rose-900 group-focus:text-rose-900
+                          "
                   >
                     <path
                       strokeLinecap="round"
@@ -176,7 +181,13 @@ const App = () => {
                 delivery
               </p>
             </div>
-            <button className="bg-red rounded-full w-full text-white font-medium px-6 py-4">
+            <button
+              className="
+                    relative bg-red rounded-full w-full text-white font-medium px-6 py-4 cursor-pointer
+                    transition-colors duration-300 ease-in-out
+                    hover:bg-[#902b0b] focus:bg-[#902b0b] focus:outline-none
+                    "
+            >
               Confirm Order
             </button>
           </div>
