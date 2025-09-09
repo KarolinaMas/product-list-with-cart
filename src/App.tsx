@@ -5,6 +5,7 @@ import ListItem from "./components/ListItem";
 import data from "./data.json";
 import type { Data, CartItem } from "./types/data";
 import { decrementLogic, incrementLogic } from "./utils";
+import Modal from "./components/Modal";
 
 const App = () => {
   const [list, setList] = useState<Data[]>([]);
@@ -193,6 +194,7 @@ const App = () => {
           </div>
         )}
       </section>
+      <Modal cart={cart} countTotalOrder={countTotalOrder} />
     </div>
   );
 };

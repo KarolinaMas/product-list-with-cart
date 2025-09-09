@@ -1,3 +1,5 @@
+import type { CartItem } from "./data";
+
 export type ListItemProps = {
   image: {
     thumbnail: string;
@@ -20,4 +22,9 @@ export type AddToCartControlsProps = {
   removeFromCart: (name: string) => void;
   increment: (name: string) => void;
   quantity: number;
+};
+
+export type ModalProps = {
+  cart: CartItem[];
+  countTotalOrder: () => number;
 };
