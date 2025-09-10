@@ -11,12 +11,15 @@ const Modal = ({
   return (
     <div
       className={clsx(
-        "bg-white max-w-172 rounded-t-xl flex flex-col gap-8 mx-auto py-10 px-6",
+        "bg-white flex flex-col gap-8 py-10 px-6 rounded-t-xl",
         "fixed bottom-0 left-0 right-0 z-50",
-        "transform transition-transform duration-500 ease-out",
+        "transform transition-transform duration-1000 ease-in-out",
         "s:p-10",
-        "md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:w-172",
-        isOrderConfirmed ? "translate-y-0" : "translate-y-full"
+        "md:bottom-auto md:left-1/2 md:rounded-xl md:w-[43rem]",
+        "lg:w-[37rem]",
+        isOrderConfirmed
+          ? "translate-y-0 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
+          : "translate-y-full md:translate-y-[200%]"
       )}
     >
       <div>
