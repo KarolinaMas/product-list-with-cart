@@ -1,9 +1,22 @@
+import clsx from "clsx";
 import confirmedIcon from "../assets/icons/icon-order-confirmed.svg";
 import type { ModalProps } from "../types/props";
 
-const Modal = ({ cart, countTotalOrder }: ModalProps) => {
+const Modal = ({
+  cart,
+  countTotalOrder,
+  startNewOrder,
+  isOrderConfirmed,
+}: ModalProps) => {
   return (
-    <div className="bg-white rounded-t-xl flex flex-col gap-8 py-10 px-6">
+    <div
+      className={clsx(
+        "bg-white rounded-t-xl flex flex-col gap-8 py-10 px-6",
+        "fixed bottom-0 left-0 right-0 z-50",
+        "transform transition-transform duration-500 ease-out",
+        isOrderConfirmed ? "translate-y-0" : "translate-y-full"
+      )}
+    >
       <div>
         <img src={confirmedIcon} alt="confirmation icon." />
         <h2 className="text-[2.5rem] font-bold leading-[120%] mt-6 mb-2">
@@ -42,6 +55,7 @@ const Modal = ({ cart, countTotalOrder }: ModalProps) => {
                     transition-colors duration-300 ease-in-out
                     hover:bg-[#902b0b] focus:bg-[#902b0b] focus:outline-none
                     "
+        onClick={startNewOrder}
       >
         Start New Order
       </button>

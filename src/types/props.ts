@@ -27,4 +27,6 @@ export type AddToCartControlsProps = {
 export type ModalProps = {
   cart: CartItem[];
   countTotalOrder: () => number;
+  startNewOrder: () => void;
+  isOrderConfirmed: boolean;
 };

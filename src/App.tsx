@@ -10,6 +10,7 @@ import Modal from "./components/Modal";
 const App = () => {
   const [list, setList] = useState<Data[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
 
   useEffect(() => {
     setList(data);
@@ -70,6 +71,15 @@ const App = () => {
   const getQuantity = (name: string) => {
     const foundItem = cart.find((item) => item.name === name);
     return foundItem ? foundItem.quantity : 0;
+  };
+
+  const confirmOrder = () => {
+    setIsOrderConfirmed(true);
+  };
+
+  const startNewOrder = () => {
+    setIsOrderConfirmed(false);
+    setCart([]);
   };
 
   return (
@@ -188,13 +198,24 @@ const App = () => {
                     transition-colors duration-300 ease-in-out
                     hover:bg-[#902b0b] focus:bg-[#902b0b] focus:outline-none
                     "
+              onClick={confirmOrder}
             >
               Confirm Order
             </button>
           </div>
         )}
       </section>
-      <Modal cart={cart} countTotalOrder={countTotalOrder} />
+      <div
+        className={`fixed inset-0 bg-black/40 transition-opacity duration-300 z-40 ${
+          isOrderConfirmed ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      />
+      <Modal
+        cart={cart}
+        countTotalOrder={countTotalOrder}
+        startNewOrder={startNewOrder}
+        isOrderConfirmed={isOrderConfirmed}
+      />
     </div>
   );
 };
