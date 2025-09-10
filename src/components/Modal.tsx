@@ -11,9 +11,11 @@ const Modal = ({
   return (
     <div
       className={clsx(
-        "bg-white rounded-t-xl flex flex-col gap-8 py-10 px-6",
+        "bg-white max-w-172 rounded-t-xl flex flex-col gap-8 mx-auto py-10 px-6",
         "fixed bottom-0 left-0 right-0 z-50",
         "transform transition-transform duration-500 ease-out",
+        "s:p-10",
+        "md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:w-172",
         isOrderConfirmed ? "translate-y-0" : "translate-y-full"
       )}
     >
@@ -24,15 +26,15 @@ const Modal = ({
         </h2>
         <p className="text-rose-500">We hope you enjoy your food!</p>
       </div>
-      <div className="bg-rose-50 p-6 rounded-lg">
+      <div className="bg-rose-50 p-6 rounded-lg max-h-[40vh] overflow-y-auto">
         {cart.map(({ name, image, quantity, total, price }) => (
-          <div className="flex gap-4 py-4 border-b-2 border-rose-100">
+          <div className="flex py-4 border-b-2 border-rose-100">
             <img
               src={image.thumbnail}
               alt={name}
-              className="w-12 h-12 rounded-sm"
+              className="w-12 h-12 rounded-sm mr-4"
             />
-            <div className="text-rose-500 text-sm">
+            <div className="text-rose-500 text-sm mr-auto">
               <p className="text-rose-900 font-semibold w-34 truncate">
                 {name}
               </p>
